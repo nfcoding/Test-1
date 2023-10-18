@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
-import { Button, Card, CardBody, CardHeader, Form, Col, Container, FormGroup, Input, Label, Modal, ModalBody, ModalFooter, ModalHeader, Row } from "reactstrap";
+import { Button, Card, CardBody, CardHeader, Form, Col, Container, FormGroup, Input, Label, Modal, ModalBody, ModalFooter, ModalHeader, Row, Badge } from "reactstrap";
 import Swal from "sweetalert2";
 import { deleteChecklistApi, getChecklistApi, postChecklistApi } from "../services/checklist";
 
@@ -22,7 +22,7 @@ const Checklist = () => {
     },
     {
       name: "Status",
-      selector: (row) => row.checklistCompletionStatus,
+      selector: (row) => (row.checklistCompletionStatus === true ? <Badge color="success">Complete</Badge> : <Badge color="danger">Not Complete</Badge>),
     },
     {
       name: "Action",
